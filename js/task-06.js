@@ -6,14 +6,16 @@ const onInputChange = function (event) {
     const value = event.currentTarget.value;
 
     if (value.length === length) {
-        inputEl.classList.remove('invalid');
-        inputEl.classList.add('valid');
-        console.log("valid")
+        updateClass("valid", "invalid");
+
     } else {
-        inputEl.classList.remove('valid');
-        inputEl.classList.add('invalid');
-        console.log("invalid")
+        updateClass("invalid", "valid");
     }
 };
+
+function updateClass(add, remove) {
+    inputEl.classList.add(add);
+    inputEl.classList.remove(remove);
+}
 
 inputEl.addEventListener('change', onInputChange);
